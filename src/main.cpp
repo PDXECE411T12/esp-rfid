@@ -259,61 +259,14 @@ void ICACHE_RAM_ATTR loop()
 		rfidloop();
 	}
 
-	// Continuous relay mode
-	if (lockType == 1)
+	static int isActive = 0;
+
+	if (activateRelay)
 	{
-		if (activateRelay)
-		{
-			// currently OFF, need to switch ON
-			if (digitalRead(relayPin) == !relayType)
-			{
-#ifdef DEBUG
-				Serial.print("mili : ");
-				Serial.println(millis());
-				Serial.println("activating relay now");
-#endif
-				digitalWrite(relayPin, relayType);
-			}
-			else	// currently ON, need to switch OFF
-			{
-#ifdef DEBUG
-				Serial.print("mili : ");
-				Serial.println(millis());
-				Serial.println("deactivating relay now");
-#endif				
-				digitalWrite(relayPin, !relayType);
-			}
-			activateRelay = false;	
-		}
-	}
-	else if (lockType == 0)	// momentary relay mode
-	{
-		if (activateRelay)
-		{
-#ifdef DEBUG
-			Serial.print("mili : ");
-			Serial.println(millis());
-			Serial.println("activating relay now");
-#endif
-			digitalWrite(relayPin, relayType);
-			previousMillis = millis();
-			activateRelay = false;
-			deactivateRelay = true;
-		}
-		else if ((currentMillis - previousMillis >= activateTime) && (deactivateRelay))
-		{
-#ifdef DEBUG
-			Serial.println(currentMillis);
-			Serial.println(previousMillis);
-			Serial.println(activateTime);
-			Serial.println(activateRelay);
-			Serial.println("deactivate relay after this");
-			Serial.print("mili : ");
-			Serial.println(millis());
-#endif
-			digitalWrite(relayPin, !relayType);
-			deactivateRelay = false;
-		}
+		analogWriteFreq(50);
+		analogWrite(relayPin, 50 + (20 * isActive));
+		activateRelay = false;	
+		isActive = (isActive + 1) % 10;
 	}
 
 	if (formatreq)
