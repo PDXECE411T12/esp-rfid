@@ -135,6 +135,8 @@ int mport;
 
 int lockType;
 int relayType;
+uint8_t relayHigh = 250;
+uint8_t relayLow = 60;
 unsigned long activateTime;
 int timeZone;
 
@@ -259,14 +261,14 @@ void ICACHE_RAM_ATTR loop()
 		rfidloop();
 	}
 
-	static int isActive = 0;
+	static bool isActive = 0;
 
 	if (activateRelay)
 	{
 		analogWriteFreq(50);
-		analogWrite(relayPin, 50 + (20 * isActive));
-		activateRelay = false;	
-		isActive = (isActive + 1) % 10;
+		analogWrite(relayPin, isActive ? relayHigh : relayLow);
+		activateRelay = false;
+		isActive = !isActive;
 	}
 
 	if (formatreq)

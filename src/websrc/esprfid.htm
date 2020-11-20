@@ -249,13 +249,25 @@
             <button id="testb" type="button" class="btn btn-primary btn-xs" onclick="testRelay()">Test</button><i style="margin-left: 10px;" class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-placement="left" data-content="Test previous relay setting. Keep in mind that this is actually triggers the relay."></i>
         </span>
     </div>
-    <div class="row form-group">
+    <div class="row form-group" style="display: none">
         <label class="col-xs-3">Lock Type<i style="margin-left: 10px;" class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="Use momentary method for door lock counterparts, and the continuous one for electromagnetic locks."></i></label>
         <span class="col-xs-9 col-md-5">
             <select class="form-control input-sm" id="lockType" onchange="handleLock();">
                 <option selected="selected" value="0">Momentary</option>
                 <option value="1">Continuous</option>
             </select>
+        </span>
+    </div>
+    <div class="row form-group">
+        <label class="col-xs-3">Relay High<i style="margin-left: 10px;" class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="Use momentary method for door lock counterparts, and the continuous one for electromagnetic locks."></i></label>
+        <span class="col-xs-9 col-md-5">
+            <input class="form-control input-sm" value="250" placeholder="___" id="relayHigh" type="text" name="rhigh">
+        </span>
+    </div>
+    <div class="row form-group">
+        <label class="col-xs-3">Relay Low<i style="margin-left: 10px;" class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="Use momentary method for door lock counterparts, and the continuous one for electromagnetic locks."></i></label>
+        <span class="col-xs-9 col-md-5">
+            <input class="form-control input-sm" value="50" placeholder="___" id="relayLow" type="text" name="rlow">
         </span>
     </div>
     <div class="row form-group" id="activateTimeForm">

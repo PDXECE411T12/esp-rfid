@@ -33,7 +33,9 @@ var config = {
         "rfidgain": 32,
         "wifipin": 255,
         "rtype": 1,
-        "ltype": 0,
+        "ltype": 0, // REMOVE
+        "rlow": 60,
+        "rhigh": 250,
         "rpin": 4,
         "rtime": 400,
         "buttonpin": 255
@@ -147,6 +149,8 @@ function listhardware() {
         document.getElementById("gpioss").value = config.hardware.sspin;
         document.getElementById("gain").value = config.hardware.rfidgain;
         document.getElementById("gpiorly").value = config.hardware.rpin;
+        document.getElementById("relayHigh").value = config.hardware.rhigh;
+        document.getElementById("relayLow").value = config.hardware.rlow;
 	}
     handleReader();
     handleLock();
@@ -192,6 +196,8 @@ function savehardware() {
     config.hardware.rfidgain = parseInt(document.getElementById("gain").value);
     config.hardware.rtype = parseInt(document.getElementById("typerly").value);
     config.hardware.ltype = parseInt(document.getElementById("lockType").value);
+    config.hardware.rhigh = parseInt(document.getElementById("relayHigh").value);
+    config.hardware.rlow = parseInt(document.getElementById("relayLow").value);
     config.hardware.rpin = parseInt(document.getElementById("gpiorly").value);
     config.hardware.rtime = parseInt(document.getElementById("delay").value);
     config.hardware.wifipin = parseInt(document.getElementById("wifipin").value);

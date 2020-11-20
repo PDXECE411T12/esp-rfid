@@ -53,6 +53,12 @@ bool ICACHE_FLASH_ATTR loadConfiguration()
 			button.interval(30);
 		}
 	}
+	if (hardware.containsKey("rhigh")) {
+		relayHigh = hardware["rhigh"];
+	}
+	if (hardware.containsKey("rlow")) {
+		relayLow = hardware["rlow"];
+	}
 #ifdef OFFICIALBOARD
 	setupWiegandReader(5, 4);
 #endif
