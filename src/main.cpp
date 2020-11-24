@@ -262,6 +262,7 @@ void ICACHE_RAM_ATTR loop()
 	}
 
 	static bool isActive = 0;
+	static unsigned long activationTime = 0;
 
 	if (activateRelay)
 	{
@@ -269,6 +270,10 @@ void ICACHE_RAM_ATTR loop()
 		analogWrite(relayPin, isActive ? relayHigh : relayLow);
 		activateRelay = false;
 		isActive = !isActive;
+		activationTime = millis();
+	} else if (lockType == 0 && activationTime != 0 && (activationTime + activateTime < millis())) {
+		digitalWrite(relayPin, 0);
+		activationTime = 0;
 	}
 
 	if (formatreq)
