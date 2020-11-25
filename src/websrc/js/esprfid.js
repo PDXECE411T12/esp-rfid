@@ -118,12 +118,6 @@ function handleReader() {
 }
 
 function handleLock() {
-    var lType = parseInt(document.getElementById("lockType").value);
-    if (lType === 0) {
-        document.getElementById("activateTimeForm").style.display = "block";
-    } else if (lType === 1) {
-        document.getElementById("activateTimeForm").style.display = "none";
-    }
 }
 
 function listhardware() {
