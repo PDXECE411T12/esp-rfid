@@ -271,8 +271,8 @@ void ICACHE_RAM_ATTR loop()
 		activateRelay = false;
 		isActive = !isActive;
 		activationTime = millis();
-	} else if (lockType == 0 && activationTime != 0 && (activationTime + activateTime < millis())) {
-		digitalWrite(relayPin, 0);
+	} else if (activationTime != 0 && (activationTime + activateTime < millis())) {
+		digitalWrite(relayPin, 1);
 		activationTime = 0;
 	}
 
