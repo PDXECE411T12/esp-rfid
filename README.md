@@ -1,3 +1,10 @@
+# Modified for:
+## ECE 411 Team 12 
+### RFID Smart Lock
+
+#### Fall 2020
+#### Authors: Miles Breslin, Miguel Higgins Moy, John Sharpe, Noah Page
+
 # ESP RFID - Access Control with ESP8266, RC522 PN532 Wiegand RDM6300
 
 [![Chat at https://gitter.im/esp-rfid/Lobby](https://badges.gitter.im/esp-rfid.svg)](https://gitter.im/esp-rfid/Lobby) [![Build Status](https://travis-ci.org/esprfid/esp-rfid.svg?branch=stable)](https://travis-ci.org/esprfid/esp-rfid) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d475052a09bd4865bc2654f524614cba)](https://www.codacy.com/app/omersiar/esp-rfid?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=esprfid/esp-rfid&amp;utm_campaign=Badge_Grade) [![BCH compliance](https://bettercodehub.com/edge/badge/esprfid/esp-rfid?branch=stable)](https://bettercodehub.com/) [![Bountysource](https://api.bountysource.com/badge/team?team_id=242217)](https://salt.bountysource.com/checkout/amount?team=esp-rfid)
